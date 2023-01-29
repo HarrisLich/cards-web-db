@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/output.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex max-w-full">
+        <div class="flex flex-col items-center w-full h-full justify-center">
+            <h1 class="font-bold text-2xl"><%- value.name %></h1>
+            <div class="text-base">
+                <p><%-value.description %></p>
+            </div>
+            <div>
+                <img src="/uploads/<%=value.name %>" class="" alt="..."></img>
+            </div>
+            
+            
+        </div>
+    </div>
+</body>
+</html>
