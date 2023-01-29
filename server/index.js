@@ -2,12 +2,14 @@ const express = require('express')
 const mongoose = require('mongoose')
 const Card = require('./models/card')
 const cardRouter = require('./routers/cards')
+const methodOverride = require('method-override')
 const path = require('path')
 const app = express()
 
 mongoose.set('strictQuery', false)
 mongoose.connect('mongodb://127.0.0.1:27017/cards')
 
+app.use(methodOverride('_method'))
 app.use(express.static("public"))
 app.use(express.static("dist"))
 

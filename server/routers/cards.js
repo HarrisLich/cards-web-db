@@ -2,6 +2,7 @@ const express = require('express')
 const Card = require('./../models/card')
 const router = express.Router()
 const multer = require('multer')
+const fs = require('fs')
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -27,6 +28,12 @@ router.use('/edit/:id', async (req,res)=>{
     res.render('./../views/cards/edit', { value: editCard })
 })
 
+router.post('/edit/:id', async (req,res)=>{
+    const id = req.params.id
+    const updateCard = await Card.findByIdAndUpdate(id)
+    console.log('Card successfully updated!')
+})
+
 router.post('/new', upload.single('file'), async (req,res)=>{
     try{
         const newCard = new Card({
@@ -40,6 +47,23 @@ router.post('/new', upload.single('file'), async (req,res)=>{
         newCard.save().catch(err=>console.log(err))
         res.redirect('/')
         console.log("Card Successfully Saved to DB")
+    }catch(e){
+        console.log(e)
+    }
+})
+
+router.delete("/:id", async (req,res)=>{
+    try{
+        const deleteCard = await Card.findByIdAndDelete(req.params.id)
+        fs.unlink(__dirname + "/../public/uploads/" + deleteCard.name, (err)=>{
+            if(err){
+                console.log(err)
+            }
+            console.log("file successfully deleted")
+        })
+        res.redirect('/')
+        console.log("Successfully deleted card")
+
     }catch(e){
         console.log(e)
     }
