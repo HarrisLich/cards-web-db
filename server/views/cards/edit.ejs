@@ -11,15 +11,23 @@
 <body>
     <div class="flex max-w-full">
         <div class="flex flex-col items-start w-full h-full justify-start ml-4">
-            <form action="/cards/edit/:id" class="w-full" method="POST">
+            <form enctype="multipart/form-data" action="/cards/<%=value.id%>?_method=PUT" class="w-full" method="POST">
                 <h1 class="font-bold text-2xl">Name</h1>
-                <input value="<%- value.name %>" class="form-control w-full font-bold text-2xl"></input>
+                <input name="name" id="id" value="<%- value.name %>" class="form-control w-full font-bold text-2xl"></input>
                 <div class="text-base flex flex-col w-full">
                     <h1 class="font-bold text-2xl">Description</h1>
-                    <input class="form-control" value="<%-value.description %>"></input>
+                    <input id="description" name="description" class="form-control" value="<%-value.description %>"></input>
                 </div>
                 <div>
-                    <img src="/uploads/<%=value.name %>" style="height: 400px;" alt="..."></img>
+                    <h1 class="font-bold text-2xl">Image</h1>
+                    <input type="file" id="file" name="file" class="form-control mt-2 mb-2"></input>
+                </div>
+                <div>
+                    <h1 class="font-bold text-2xl">Stock</h1>
+                    <input name="stock" id="stock" value="<%- value.stock %>" class="form-control mt-2 mb-2" style="width: 75px"></input>
+                </div>
+                <div>
+                    <img src="/uploads/<%=value.filename %>" style="height: 400px;" alt="..."></img>
                 </div>
                 <div>
                     <button type="submit" class="rounded bg-green-500 px-4 py-2 mt-2">Save</button>

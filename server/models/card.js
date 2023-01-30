@@ -4,12 +4,18 @@ const cardSchema = mongoose.Schema({
     name: {
         type: String
     },
+    filename: {
+        type: String
+    },
     description: {
         type: String
     },
     img: {
         data: Buffer,
         contentType: String
+    },
+    stock: {
+        type: String
     }
 })
 

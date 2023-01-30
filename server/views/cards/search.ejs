@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/output.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body class="bg-gray-200">
+    <div class="mt-4 ml-4 flex justify-start">
+        <a href="/" class="bg-sky-500 rounded drop-shadow-lg px-4 py-2 hover:bg-sky-400">Home</a>
+    </div>
+    <div class="ml-2 flex flex-row max-w-full">
+        <% value.forEach((e)=>{ %>
+            <%- include('./../components/__card', {e : e}) %>
+        <% }) %>
+    </div>
+</body>
+
+</html>

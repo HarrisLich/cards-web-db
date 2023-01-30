@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="/output.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="flex w-full flex-col items-start ml-4">
+        <div>
+            <h1><%- value.name %></h1>
+        </div>
+        <div>
+            <h1><%- value.description %></h1>
+        </div>
+        <div>
+            <img src="/uploads/<%=value.filename %>" alt="....">
+        </div>
+        <div class="mt-4">
+            <a href="/" class="rounded bg-blue-500 hover:bg-blue-300 px-4 py-2">All Cards</a>
+        </div>
+    </div>
+</body>
+</html>

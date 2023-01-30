@@ -1,0 +1,21 @@
+<div class="hover:scale-105 transform transition transition-all card bg-white rounded-lg m-3 card p-2 h-fit drop-shadow-lg"
+    style="width: 18rem;">
+    <div class="w-full h-full flex justify-center items-center">
+        <img src="/uploads/<%=e.filename %>" class="" alt="..."></img>
+    </div>
+    <div class="max-w-full justify-between">
+        <div class="flex flex-row max-w-full">
+            <h1>Stock:<%- e.stock %></h1>
+            <div class="flex w-full justify-end">
+                <a href="/cards/<%= e.id %>" class="text-blue-500 hover:text-blue-300 font-bold ml-4">Show
+                    More</a>
+                <a class="text-sky-500 hover:text-sky-300 font-bold ml-2" href="/cards/edit/<%= e.id %>">Edit</a>
+                <form method="POST" action="/cards/<%= e.id %>?_method=DELETE">
+                    <button class="text-red-500 hover:text-red-300 font-bold ml-2">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+</div>

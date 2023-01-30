@@ -1,36 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <link href="/output.css" rel="stylesheet">
-   <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
 </head>
+
 <body class="bg-gray-200">
-   <div class="flex flex-col max-w-full">
-       <div class="flex justify-start mt-4 ml-4">
-           <a href="/cards/new" class="bg-sky-500 rounded drop-shadow-lg px-4 py-2 hover:bg-sky-400">New Card</a>
-       </div>
-       <div class="flex flex-row max-w-full ml-2">
-        <% value.forEach((e)=>{ %>
-            <div class="bg-white border-black border rounded-lg m-2 card p-2 h-fit drop-shadow-lg" style="width: 18rem;">
-                <img src="/uploads/<%=e.name %>" class="" alt="..."></img>
-                <div class="max-w-full flex" style="justify-content: flex-end;">
-                    <div class="inline-block flex max-w-full">
-                        <a class="text-sky-500 hover:text-sky-300 font-bold" href="/cards/edit/<%= e.id %>">Edit</a>
-                        <form method="POST" action="/cards/<%= e.id %>?_method=DELETE">
-                            <button class="text-red-500 hover:text-red-300 font-bold ml-2">Delete</button>
-                        </form>
-                       
-                    </div>
-                </div>
-    
-    
+    <div class="flex flex-col max-w-full">
+        <div class="flex justify-start mt-4 ml-4">
+            <a href="/cards/new" class="bg-sky-500 rounded drop-shadow-lg px-4 py-2 hover:bg-sky-400">New Card</a>
+            <div class="ml-2 flex relative items-center">
+                <form method="POST" action="/">
+                    <input search-bar type="text" class="py-2 px-2 form-control ml-4 rounded drop-shadow-lg"
+                        placeholder="search..." id="search" name="search">
+                    <button type="submit" class="rounded-full bg-white" style="width:36px; height: 36px;">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+
             </div>
+        </div>
+
+        <div class="flex flex-row max-w-full ml-2">
+            <% value.forEach((e)=>{ %>
+                <%- include('./../components/__card', {e : e}) %>
             <% }) %>
-       </div>
-   </div>
-      
+        </div>
+    </div>
+
 </body>
+
 </html>
