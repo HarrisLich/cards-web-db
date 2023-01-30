@@ -9,7 +9,6 @@ const path = require('path')
 const MongoStore = require('connect-mongo')
 const genPassword = require('./lib/passwordUtils').genPassword
 const session = require('express-session')
-const bcrypt = require('bcrypt')
 const passport = require('passport')
 const app = express()
 const dotenv = require('dotenv').config()
